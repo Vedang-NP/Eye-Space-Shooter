@@ -1,0 +1,5 @@
+# Requires Python 3.9-3.12. Newer mediapipe releases drop the mp.solutions API
+# that eye_tracker.py and eye_detection.py use.
+mediapipe==0.10.21
+pygame
+opencv-python

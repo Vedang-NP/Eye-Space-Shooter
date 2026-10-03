@@ -111,6 +111,11 @@ class EyeTracker:
         with self._lock:
             return self.direction
 
+    def get_frame(self):
+        """Return the latest mirrored BGR webcam frame, or None before the first one."""
+        with self._lock:
+            return self.latest_frame
+
     # ----------------------------------------------------------
     # Internal processing (runs in the background thread)
     # ----------------------------------------------------------
@@ -143,6 +148,7 @@ class EyeTracker:
                 self.direction = direction
                 self.iris_x = iris_x
                 self.iris_y = iris_y
+                self.latest_frame = frame
 
         self.cap.release()
 
